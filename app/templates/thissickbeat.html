@@ -1,0 +1,7 @@
+<div class="tile-container">
+	<h1>{{sickbeat.title}}</h1>
+
+	<div class="beatTile" ng-repeat= "beat in sickbeat.beatPlayer.beats" ng-click="sickbeat.beatPlayer.play(beat)">
+		<p>{{beat.name}}</p>
+	</div>
+</div>
