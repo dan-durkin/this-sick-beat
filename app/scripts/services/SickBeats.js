@@ -1,5 +1,7 @@
 (function(){
 	function SickBeats () {
+		var SickBeats = {};
+		
 		var beats = [
 			{name: 'Style', audioURL:'/assets/beats/style'},
 			{name: 'Clean', audioURL: '/assets/beats/clean'}
