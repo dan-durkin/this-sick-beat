@@ -11,7 +11,9 @@ html {
 
 body{
 	margin: 0rem;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'LetterGothicStd', sans-serif;
+	letter-spacing: -0.588px;
+	//text-transform: uppercase;
 	background-image: url(../assets/images/Taylor-Swift-1989.jpg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -21,7 +23,7 @@ body{
 
 .tile-container{
 	width: 85%;
-	height: 20rem;
+	height: 25rem;
 	margin: 4rem auto;
 	padding: 2rem;
 	min-height: 100%;
@@ -31,7 +33,7 @@ body{
 .beatTile{
 	width: 50%;
 	min-width: 3rem;
-	min-height: 3rem;
+	min-height: 5rem;
 	border: 2px solid black;
 	float: left;
 	position: inline-block;

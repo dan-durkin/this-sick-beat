@@ -2,7 +2,8 @@
 	function BeatPlayer(SickBeats) {
 		var BeatPlayer = {};
 		var currentBuzzObject = null;
-	
+		var registeredScopes = [];
+		
 		var setBeat = function (beat) {
 			if(currentBuzzObject){
 				stopBeat(BeatPlayer.currentBeat);
@@ -13,7 +14,20 @@
 				preload: true
 			});
 			
-			BeatPlayer.currentBeat = beat;
+			currentBuzzObject.setTime(beat.start);
+			currentBuzzObject.bind('timeupdate', function(){
+				for(var i=0;i<registeredScopes.length;i++){
+					registeredScopes[i].$apply(function(){
+						var time = currentBuzzObject.getTime();
+						console.log(time, beat.end);
+						if(time >= beat.end - 0.25){
+							fadeBeat(beat);
+							currentBuzzObject.unbind('timeupdate');
+						}
+					});
+				}
+			})
+						
 			BeatPlayer.setVolume(50);
 			playBeat(beat);
 		}
@@ -23,11 +37,21 @@
 			BeatPlayer.currentBeat = beat;
 		};
 		
+		var fadeBeat = function (beat){
+			currentBuzzObject.fadeOut(250, function(){
+				stopBeat(beat);
+			});
+		}
+		
 		var stopBeat = function (beat) {
 			currentBuzzObject.stop();
 			currentBuzzObject = null;
 			BeatPlayer.currentBeat = null;
 		}
+		
+		BeatPlayer.beats = SickBeats.getBeats();
+		BeatPlayer.currentBeat = null;
+		BeatPlayer.currentVolume = null;
 		
 		BeatPlayer.setVolume = function(newVolume){
 			if(currentBuzzObject){
@@ -39,8 +63,8 @@
 		};
 		
 		BeatPlayer.play = function (beat){
-			beat = beat || BeatPlayer.currentSong;
-			if(BeatPlayer.currentBeat !== beat && BeatPlayer.currentBeat){
+			//beat = beat || BeatPlayer.currentBeat;
+			if(BeatPlayer.currentBeat){
 				stopBeat(BeatPlayer.currentBeat);
 				setBeat(beat);
 			}
@@ -49,9 +73,9 @@
 			}
 		};
 		
-		BeatPlayer.beats = SickBeats.getBeats();
-		BeatPlayer.currentBeat = null;
-		BeatPlayer.currentVolume = null;
+		BeatPlayer.register = function (scope) {
+			registeredScopes.push(scope);
+		};
 		
 		return BeatPlayer;
 	}
