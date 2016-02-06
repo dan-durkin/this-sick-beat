@@ -1,9 +1,8 @@
 (function(){
 	function SickBeatCtrl (BeatPlayer, $scope){
 		this.title = "This Sick Beat";
-		this.beatPlayer = BeatPlayer;
-		
-		this.beatPlayer.register($scope);
+		this.beatPlayer = myBeatPlayer = BeatPlayer;
+		myBeatPlayer.register($scope);
 	}
 	
 	angular

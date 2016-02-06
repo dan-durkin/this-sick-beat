@@ -19,8 +19,9 @@
 				for(var i=0;i<registeredScopes.length;i++){
 					registeredScopes[i].$apply(function(){
 						var time = currentBuzzObject.getTime();
-						console.log(time, beat.end);
-						if(time >= beat.end - 0.25){
+						time *= 1000;
+						var end = beat.end * 1000;
+						if(time >= end - 250){
 							fadeBeat(beat);
 							currentBuzzObject.unbind('timeupdate');
 						}
