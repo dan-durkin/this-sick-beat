@@ -8,13 +8,18 @@
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body ng-controller="SickBeatCtrl as sickbeat">
-	<div class="tile-container">
-		<h1>{{sickbeat.title}}</h1>
-
-		<div class="beatTile" ng-repeat= "beat in sickbeat.beatPlayer.beats" ng-click="sickbeat.beatPlayer.play(beat)">
-			<p>{{beat.name}}</p>
+	
+	<div class="thissickbeat-container">
+		<div class="welcome-container">
+			<h1>{{sickbeat.title}}</h1>
+		</div>
+		<div class="tile-container">
+			<div class="beatTile" ng-repeat= "beat in sickbeat.beatPlayer.beats" ng-click="sickbeat.beatPlayer.play(beat)">
+				<p>{{beat.name}}</p>
+			</div>
 		</div>
 	</div>
+
 	<div class="disclaimer"><p>Please read the following <a href="#">disclaimer</a>.</p></div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>

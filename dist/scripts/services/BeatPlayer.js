@@ -64,7 +64,6 @@
 		};
 		
 		BeatPlayer.play = function (beat){
-			//beat = beat || BeatPlayer.currentBeat;
 			if(BeatPlayer.currentBeat){
 				stopBeat(BeatPlayer.currentBeat);
 				setBeat(beat);

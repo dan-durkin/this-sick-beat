@@ -3,7 +3,6 @@
 		var SickBeats = {};
 		
 		var beats = [
-			
 			{name: 'This. Sick. Beat.', audioURL:'/assets/beats/shake_it_off', start: 147.8, end: 150.25},			
 			{name: 'James Dean daydream', audioURL:'/assets/beats/style', start:60.25, end: 64.8},
 			{name: 'Now we got problems', audioURL:'/assets/beats/bad_blood', start:12.25, end:17},
