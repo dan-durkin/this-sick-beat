@@ -7,26 +7,18 @@
 	<link href='https://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/styles/style.css">
 </head>
-<body ng-controller="SickBeatCtrl as sickbeat">
-	
+<body>	
 	<div class="thissickbeat-container">
 		<div class="welcome-container">
-			<h1>{{sickbeat.title}}</h1>
+			<h1>This Sick Beat</h1>
 		</div>
 		<div class="tile-container">
-			<div class="beatTile" ng-repeat= "beat in sickbeat.beatPlayer.beats" ng-click="sickbeat.beatPlayer.play(beat)">
-				<p>{{beat.name}}</p>
-			</div>
 		</div>
 	</div>
-
 	<div class="disclaimer"><p>Please read the following <a href="#">disclaimer</a>.</p></div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.10/buzz.min.js"></script>
-<script src="/scripts/app.js"></script>
-<script src="/scripts/contollers/SickBeatCtrl.js"></script>
-<script src="/scripts/services/BeatPlayer.js"></script>
-<script src="/scripts/services/SickBeats.js"></script>
+<script src="/scripts/beats.js"></script>
+<script src="/scripts/main.js"></script>
 </html>
